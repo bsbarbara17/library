@@ -12,11 +12,9 @@
 
     <div class="content">
         <form action="/tarefas" method="post">
-            <input type="hidden" name="_csrf" value="${_csrf.token}">
-            <input type="text" placeholder="Título" name="titulo" required>
-            <textarea name="descricao" id="descricao" placeholder="Descrição" cols="30" rows="10" required></textarea>
+            <textarea name="descricao" id="30" cols="30" rows="10"></textarea>
             <div class="actions">
-                <a class="btn" href="/tarefas">Cancelar</a>
+                <a class ="btn"href="/tarefas">Cancelar</a>
                 <button class="btn blue">Salvar</button>
             </div>
         </form>

@@ -13,42 +13,41 @@ import br.com.senac.library.model.Tarefa;
 
 @Controller
 public class TarefaController {
-
-    private final TarefaRepository repository;
-
+    
     @Autowired
-    public TarefaController(TarefaRepository repository) {
-        this.repository = repository;
-    }
+   TarefaRepository repository;
 
+    //localhost/tarfear
     @GetMapping("/tarefas")
-    public String tarefas(Model model) {
-        Iterable<Tarefa> tarefas = repository.findAll();
+    public String tarefas(Model model){
+        var tarefas = repository.findAll();
         model.addAttribute("tarefas", tarefas);
         return "tarefas";
     }
 
     @GetMapping("/tarefas/cadastrar")
-    public String formulario() {
+    public String formulario(){
         return "formulario_tarefa";
     }
 
+    
     @GetMapping("/")
-    public String home() {
-        return "redirect:/tarefas";
+    public String home(){
+        return"redirect:/tarefas";
     }
 
     @DeleteMapping("/tarefas")
-    public String apagar(Long id, RedirectAttributes redirect) {
-        repository.deleteById(id);
-        redirect.addFlashAttribute("mensagem", "Tarefa apagada com sucesso!");
-        return "redirect:/tarefas";
+    public String apagar(Long id , RedirectAttributes redirect){
+       repository.deleteById(id);
+       redirect.addFlashAttribute("mensagem", "Tarefa apagada com sucesso");
+       return"redirect:/tarefas";
     }
 
     @PostMapping("/tarefas")
-    public String cadastrar(Tarefa tarefa) {
+    public String cadastrar(Tarefa tarefa){
         System.out.println(tarefa);
         repository.save(tarefa);
-        return "redirect:/tarefas";
+        return"redirect:/tarefas";       
     }
+  
 }
