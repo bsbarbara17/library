@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <nav>
+    <a href="/logout">
+        <span class="material-icons">exit_to_app</span>
+    </a>
+   </nav>
+    <h1>Library</h1>
+
+    
+
+    <a  class= "btn blue " href="/tarefas/cadastrar">cadastrar</a>
+
+    <span 
+    Pclass="alert" 
+    th:text="${mensagem}"
+    th:if="${mensagem !=null}"
+    ></span>
+
+    <div class="tasks">
+        
+
+        <div class="card-task" th:each="tarefa:${tarefas}">
+            <h2 th:text="${tarefa.titulo}">Estudar</h2>
+              <p th:text="${tarefa.descricao}">descricao da tarefa</p>       
+             <form action="/tarefas" method="POST">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+                <input type="hidden" name="_method" value="DELETE"/>
+                <input type="hidden" name="id" th:value="${tarefa.id}"/>
+                <button class="btn btn-sm red">
+                    <span class="material-icons">delete</span>
+                </button>
+             </form>
+
+
+        </div>
+       
+    </div>
+
+</body>
+</html>

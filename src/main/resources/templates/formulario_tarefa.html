@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Library</h1>
+
+    <div class="content">
+        <form action="/tarefas" method="POST">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+            <input type="text" placeholder="titulo"name="titulo">
+            <textarea name="descricao" id="30" cols="30" rows="10"></textarea>
+            <div class="actions">
+                <a  class ="btn"href="/tarefas">cancelar</a>
+                <button class="btn blue ">salvar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
