@@ -12,9 +12,13 @@
 
     <div class="content">
         <form action="/tarefas" method="post">
-            <textarea name="descricao" id="30" cols="30" rows="10"></textarea>
+            <textarea name="nome" id="30" cols="30" rows="30" placeholder="nome"></textarea>
+            <textarea name="autor" id="30" cols="30" rows="10" placeholder="autor"></textarea>
+            <textarea name="descricao" id="30" cols="30" rows="10" placeholder="descricao"></textarea>
+            <textarea name="categoria" id="30" cols="30" rows="10" placeholder="categoria"></textarea>
+            <textarea name="valor" id="30" cols="30" rows="10" placeholder="valor"></textarea>
             <div class="actions">
-                <a class ="btn"href="/tarefas">Cancelar</a>
+                <a  class ="btn"href="/tarefas">Cancelar</a>
                 <button class="btn blue">Salvar</button>
             </div>
         </form>

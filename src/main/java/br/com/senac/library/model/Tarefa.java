@@ -11,7 +11,7 @@ import lombok.Data;
 public class Tarefa {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Titulo;
+    private String titulo;
     private String descricao;
 
 
